@@ -1,0 +1,149 @@
+#slider-wrapper {
+    position: relative;
+    height: 240px;
+    width: 360px;
+}
+
+#slider-bg {
+    background: url("slide/carbon-bg.png") repeat scroll 0 0 transparent;
+    background-color: #000;
+    height: 240px;
+    width: 360px;
+}
+
+#slider-photos {
+    position: absolute;
+    height: 240px;
+    width: 360px;
+}
+
+#slides {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+
+.slides_container {
+    display: none;
+    overflow: hidden;
+    position: relative;
+    width: 360px;
+}
+
+.entry .slides_container {
+    width: 360px;
+}
+
+.slides_container div.slide {
+    display: block;
+    height: 240px;
+    width: 360px;
+}
+
+#slides .next, #slides .prev {
+    display: block;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    top: 112px;
+    width: 30px;
+    z-index: 101;
+}
+
+#slides .next, #slides .prev img, #slides .next, #slides .next img {
+    width: 15px;
+    height: 35px;
+}
+
+#slides .next {
+    left: 345px;
+}
+
+.slides_container .slide img {
+    width: 360px;
+    height: 240px;
+}
+
+a.portfolio-slide-prev, a.portfolio-slide-next {
+}
+
+.pagination {
+    margin: 0 auto;
+    height: 34px;
+    position: absolute;
+    bottom: 40px;
+    left:5px;
+    z-index: 1000;
+}
+
+.pagination li {
+    float: right;
+    list-style: none outside none;
+    margin: 0 3px;
+    padding: 0;
+    height: 14px;
+    padding-top: 10px;
+}
+
+.pagination li a {
+    background: url("slide/slider-pagination.png") repeat scroll 0 -14px transparent;
+    display: block;
+    float: left;
+    height: 0;
+    overflow: hidden;
+    padding-top: 14px;
+    width: 14px;
+}
+
+.pagination li.current a {
+    background: url("slide/slider-pagination.png") repeat scroll 0 0 transparent;
+}
+
+.caption {
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+    position: absolute;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    z-index: 500;
+    height: 30px;
+}
+
+.caption h1 {
+    background: none repeat scroll 0 0 #000;
+    margin: 0;
+    /*
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    */
+    padding: 3px;
+    text-transform: uppercase;
+    width: 360px;
+    height: 28px;
+    line-height: 24px;
+}
+
+.caption h1 a {
+    padding: 5px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+.caption p {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    width: 360px;
+}
+
+.caption p a {
+    -moz-transition: all 0.2s ease-in 0s;
+    color: #DDDDDD;
+    font-size: 12px;
+}
+
+.caption p a:hover {
+    border-bottom: 1px solid #FFFFFF;
+    color: #FFFFFF;
+}

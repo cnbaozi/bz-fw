@@ -1,0 +1,332 @@
+{% include 'header.html' %}
+<div class="main">
+<div class="row index_row_1">
+    <!--slidebox-->
+    <div class="block slidebox">
+        <div id="slider-bg">
+            <div id="slider-photos">
+                <div id="slides">
+                    <div class="slides_container">
+{% for item in slideArr %}
+{% if item.picurl %}
+                        <div class="slide">
+                            <img src="{{constant('SITE_HOME')}}/{{item.picurl}}" alt="{{item.titlel}}"/>
+                            <div class="caption">
+                                <h1><a href="{{constant('SITE_HOME')}}/post-{{item.id}}">{{item.title}}</a></h1>
+                            </div>
+                        </div>
+{% endif %}
+{% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#slides').slides({
+                preload: true,
+                preloadImage: '/style/slide/loading.gif',
+                effect: 'fade',
+                play: 3000,
+                pause: 3000,
+                hoverPause: true,
+                animationStart: function (current) {
+                    $('.caption').animate({
+                        bottom: 0,
+                        opacity: 0
+                    }, 200);
+                },
+                animationComplete: function (current) {
+                    $('.caption').animate({
+                        bottom: 10,
+                        opacity: 0.7
+                    }, 200);
+                },
+                slidesLoaded: function () {
+                    $('.caption').animate({
+                        bottom: 10,
+                        opacity: 0.7
+                    }, 200);
+                }
+            });
+        });
+    </script>
+    <!--/slidebox-->
+
+    <div class="block index_news sh_news">
+        <div class="big_head">
+            <div class="big_head_stick"></div>
+            <h1 class="big_head_text">商会新闻</h1>
+            <span class="big_head_more"><a href="{{constant('SITE_HOME')}}/list-14">更多</a><span>
+        </div>
+        <div class="news_top">
+            <h1><a href="{{constant('SITE_HOME')}}/post-{{headline.id}}">{{headline.title}}</a></h1>
+
+            <p>{{headline.content}}</p>
+        </div>
+        <div class="news_list">
+            <ul>
+                {% for item in shNews %}
+                <li>
+                <span class="news_title">[<a class="cate" href="{{constant('SITE_HOME')}}/list-14">商会新闻</a>]<a href="{{constant('SITE_HOME')}}/post-{{item.id}}">{{item.title}}</a></span>
+                <span class="news_date">{{ item.posttime|date('y-m-d') }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="block  index_about no_mgn_rt">
+        <div class="big_head">
+            <div class="big_head_stick"></div>
+            <h1 class="big_head_text">快速链接</h1>
+        </div>
+        <div class="fast_link">
+            {% for item in fastLink %}
+            <span><a href="{{constant('SITE_HOME')}}/{{item.linkurl}}">{{item.classname}}</a></span>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+<div class="row index_row_2">
+
+    <!-- members-->
+    <div class="small_head full_w">
+        <div class="small_head_stick"></div>
+        <div class="small_head_text">商会相册</div>
+    </div>
+    <div class="scrollimg index_album">
+        <div class="imgwrap">
+            <ul>
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><img
+                                src="http://www.shzzsh.com/admincontrol/fckeditor/editor/filemanager/connectors/php/upload.phpmyfiles/userfiles/10.jpg"
+                                title=""/></dt>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /members-->
+    <script>
+        $(function () {
+            $(".imgwrap li img").LoadImage({width: 125, height: 100});
+        });
+    </script>
+
+</div>
+
+<div class="row index_row_3">
+
+    <div class="block index_news">
+        <div class="news_head">
+            <h1 class="news_name ico_list">商会公告</h1>
+            <span class="news_name_right"><a href="{{constant('SITE_HOME')}}/list-13">更多</a></span>
+        </div>
+        <div class="news_list">
+            <ul>
+                {% for item in shBulletin %}
+                <li>
+                    <span class="news_title">[<a class="cate" href="{{constant('SITE_HOME')}}/list-13">商会公告</a>]<a href="{{constant('SITE_HOME')}}/post-{{item.id}}">{{item.title}}</a></span>
+                    <span class="news_date">{{ item.posttime|date('y-m-d') }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="block index_news">
+        <div class="news_head">
+            <h1 class="news_name ico_list">会员服务</h1>
+            <span class="news_name_right"><a href="{{constant('SITE_HOME')}}/list-12">更多</a></span>
+        </div>
+        <div class="news_list">
+            <ul>
+                {% for item in services %}
+                <li>
+                    <span class="news_title">[<a class="cate" href="{{constant('SITE_HOME')}}/list-{{item.classid}}">{{item.classname}}</a>]<a href="{{constant('SITE_HOME')}}/post-{{item.id}}">{{item.title}}</a></span>
+                    <span class="news_date">{{ item.posttime|date('y-m-d') }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="block index_side_block no_mgn_rt">
+        <div class="big_head">
+            <div class="big_head_stick"></div>
+            <h1 class="big_head_text">商会简介</h1>
+        </div>
+        <div class="index_about_summary">
+            <p>{{ indexAbout.content|raw }}</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="row index_row_4">
+
+    <!-- members-->
+    <div class="small_head full_w">
+        <div class="small_head_stick"></div>
+        <div class="small_head_text">商会会员</div>
+    </div>
+    <div class="scrollimg">
+        <div class="imgwrap">
+            <ul>
+                {% for item in memberAlbum %}
+                <li>
+                    <dl>
+                        <dt><a href="{{constant('SITE_HOME')}}/post-{{item.id}}"><img src="{{constant('SITE_HOME')}}/{{item.picurl}}" title=""/></a></dt>
+                        <dd><a href="{{constant('SITE_HOME')}}/post-{{item.id}}">{{item.title}}</a></dd>
+                    </dl>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!-- /members-->
+</div>
+
+<div class="row index_row_5">
+    <div class="block index_news">
+        <div class="news_head">
+            <h1 class="news_name ico_list">会员风采</h1>
+            <span class="news_name_right"><a href="{{constant('SITE_HOME')}}/list-11">更多</a></span>
+        </div>
+        <div class="news_list">
+            <ul>
+                {% for item in members %}
+                <li>
+                    <span class="news_title">[<a class="cate" href="{{constant('SITE_HOME')}}/list-11">会员风采</a>]<a href="{{constant('SITE_HOME')}}/post-{{item.id}}">{{item.title}}</a></span>
+                    <span class="news_date">{{ item.posttime|date('y-m-d') }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="block index_news">
+        <div class="news_head">
+            <h1 class="news_name ico_list">会员动态</h1>
+            <span class="news_name_right"><a href="{{constant('SITE_HOME')}}/list-15">更多</a></span>
+        </div>
+        <div class="news_list">
+            <ul>
+                {% for item in memberNews %}
+                <li>
+                    <span class="news_title">[<a class="cate" href="{{constant('SITE_HOME')}}/list-15">会员动态</a>]<a href="{{constant('SITE_HOME')}}/post-{{item.id}}">{{item.title}}</a></span>
+                    <span class="news_date">{{ item.posttime|date('y-m-d') }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="block index_about no_mgn_rt">
+        <div class="big_head">
+            <div class="big_head_stick"></div>
+            <h1 class="big_head_text">精彩视频</h1>
+        </div>
+        <div class="clear"></div>
+        <div class="index_video">
+            {{indexVideo.content|raw}}
+        </div>
+    </div>
+
+</div>
+
+
+</div>
+
+{% include 'footer.html' %}

@@ -1,0 +1,10 @@
+* 表示可选
+index.php
+    config.php *
+        define *
+    start.php
+        common.php
+            define sys
+            !defined && define env
+            functions.php
+            spl_autoload_register

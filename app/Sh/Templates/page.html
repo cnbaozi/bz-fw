@@ -1,0 +1,39 @@
+{% include 'header.html' %}
+<div class="main">
+    <div class="breadcrumb">
+        <a class="home" href="{{constant('SITE_HOME')}}">商会首页</a> >
+        {{ page.title}} >
+    </div>
+
+    <div>
+        <div class="page_left">
+            <ul>
+                {% for item in pageList %}
+                <li{%if item.page_name==page.page_name%} class='cur'{% endif %}><a
+                    href="{{constant('SITE_HOME')}}/{{ item.page_name }}">{{
+                item.title
+                }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="page_main">
+            <div class="page_title">
+                <h1>{{ page.title}}</h1>
+            </div>
+            <div class="post_info">
+            </div>
+            <div class="post_content">
+                {{ page.content|raw}}
+                <div class="clear"></div>
+            </div>
+        </div>
+
+
+        <div class="clear"></div>
+
+    </div>
+
+
+</div>
+{% include 'footer.html' %}

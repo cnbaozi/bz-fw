@@ -1,0 +1,64 @@
+{% include 'header.html' %}
+<div class="main">
+    <div class="breadcrumb">
+        <a class="home"href="{{constant('SITE_HOME')}}">商会首页</a> >
+        {{ cateName }} >
+    </div>
+
+    <div>
+        <div class="post_main">
+            <div class="post_list">
+                <ul>
+                    {% for post in list %}
+                    <li>
+                        <a class="list_title" href="{{constant('SITE_HOME')}}/post-{{ post.id }}">{{ post.title }}</a>
+                        <span class="list_date">{{ post.posttime|date('Y-m-d') }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="list_page">
+                {{ page|raw }}
+            </div>
+
+
+        </div>
+
+        <div class="sidebar">
+            <div class="block side_block no_mgn_rt">
+            <div class="mid_head">
+                <div class="mid_head_stick"></div>
+                <h1 class="mid_head_text">快速链接</h1>
+            </div>
+            <div class="fast_link">
+                {% for item in fastLink %}
+                <span><a href="{{constant('SITE_HOME')}}/{{item.linkurl}}">{{item.classname}}</a></span>
+                {% endfor %}
+            </div>
+        </div>
+
+            <div class="block side_block no_mgn_rt">
+                <div class="mid_head">
+                    <div class="mid_head_stick"></div>
+                    <h1 class="mid_head_text">热门新闻</h1>
+                </div>
+                <div class="side_news_list clear">
+                    <ul>
+                        {% for key, item in hotNews %}
+                        <li><span class="num{% if key<3 %} gbred{%endif%}">{{key+1}}</span><a href="#">{{item.title}}</a></li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+
+
+</div>
+{% include 'footer.html' %}
