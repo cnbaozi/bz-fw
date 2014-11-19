@@ -77,6 +77,10 @@ class ctlBase {
         }
     }
 
+    public function opPage404()
+    {
+        echo '404';
+    }
 
 
 }

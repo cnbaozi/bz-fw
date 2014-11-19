@@ -274,5 +274,19 @@ class BasPmw extends mdlBase
         return $data;
     }
 
+    public static function getLinks()
+    {
+        $cond = array(
+            'checkinfo'=> 'true',
+            'ORDER'=>array('id ASC')
+        );
+        $ret = mdlBase::db()->select(self::getTable('weblink'),'*', $cond);
+        $datas = array();
+        foreach ($ret as $link) {
+            $datas[$link['classid']][] = $link;
+        }
+        return $datas;
+    }
+
 
 }

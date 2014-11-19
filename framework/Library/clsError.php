@@ -15,8 +15,9 @@ class clsError {
     // todo
     public static function E404($die = true) {
         $msg = '404: ' . $_SERVER['REQUEST_URI'];
-        __d($msg);
-        echo 404;
-        exit;
+        __d($msg ,false);
+        if ($die) {
+            exit;
+        }
     }
 } 

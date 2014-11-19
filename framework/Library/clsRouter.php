@@ -7,7 +7,8 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class clsRouter {
+class clsRouter
+{
 
     public $app = '';
 
@@ -51,14 +52,14 @@ class clsRouter {
         $sectionLen = count($section);
         if ($sectionLen == 0) {
             // default, like /
-        } elseif ($sectionLen == 1){
+        } elseif ($sectionLen == 1) {
             if (in_array(ucfirst($section[0]), $apps)) {
                 // like /Home
                 $this->app = $section[0];
             } else {
                 $this->_dealModuleAndMethod($section[0]);
             }
-        } elseif($sectionLen == 2) {
+        } elseif ($sectionLen == 2) {
             if (in_array(ucfirst($section[0]), $apps)) {
                 // like /Home/news-detail
                 $this->app = $section[0];
@@ -80,23 +81,26 @@ class clsRouter {
         }
     }
 
-    private function _dealModuleAndMethod($section) {
+    private function _dealModuleAndMethod($section)
+    {
         $newSection = explode('-', $section);
         if (count($newSection) == 1) {
             // like /news
             $this->module = $newSection[0];
-        } elseif(count($newSection) == 2) {
+        } elseif (count($newSection) == 2) {
             // like /news-detail
             $this->module = $newSection[0];
             $this->method = $newSection[1];
         } else {
             clsError::E404();
+            $this->page404();
         }
     }
 
-    private function _dealGetPara($section) {
+    private function _dealGetPara($section)
+    {
         if (empty($section)) {
-            return ;
+            return;
         }
         $section = explode('-', $section);
         self::$getPara = $section;
@@ -104,13 +108,13 @@ class clsRouter {
         $sectionLen = count($section);
         $i = 1;
         $data = array();
-        while ($i<$sectionLen) {
-            $data[$section[$i-1]] = $section[$i];
+        while ($i < $sectionLen) {
+            $data[$section[$i - 1]] = $section[$i];
             $i += 2;
         }
 
         if ($sectionLen % 2 == 1) {
-            $data['_last'] = $section[$i-1];
+            $data['_last'] = $section[$i - 1];
         }
 
         $_GET = array_merge($data, $_GET);
@@ -129,8 +133,9 @@ class clsRouter {
 
         $path = SYS_APP_DIR . "/{$app}/Controller/ctl{$module}.php";
 
-        if(!in_array($app, C('apps')) || !file_exists($path)) {
-            clsError::E404();
+        if (!in_array($app, C('apps')) || !file_exists($path)) {
+            clsError::E404(false);
+            $this->page404();
         }
 
         $class = "\\{$app}\\ctl{$module}";
@@ -142,9 +147,17 @@ class clsRouter {
         if (method_exists($ctl, $realMethod)) {
             $ctl->$realMethod();
         } else {
-            clsError::E404();
+            clsError::E404(false);
+            $this->page404();
         }
 
+    }
+
+    public function page404()
+    {
+        $this->module = SYS_DEFAULT_MODULE;
+        $this->method = 'page404';
+        $this->go();
     }
 
 }
