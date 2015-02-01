@@ -42,7 +42,7 @@ class ctlBase {
     public function display($tplFile = '', $values = null, $return = false)
     {
         is_array($values) && $this->assign($values);
-        empty($tplFile) && $tplFile = $this->module . '_' . substr($this->method, 2);
+        empty($tplFile) && $tplFile = strtolower($this->module) . '_' . strtolower(substr($this->method, 2));
 
         $tplPath = SYS_APP_DIR . '/' . $this->app . '/Templates';
         $loader = new \Twig_Loader_Filesystem($tplPath);
@@ -82,5 +82,15 @@ class ctlBase {
         echo '404';
     }
 
-
+    protected function response($code = 100, $result = null, $msg = '')
+    {
+        $o = new \stdClass();
+        $o->code = $code;
+        $o->result = $result;
+        $o->msg = $msg;
+        $output = json_encode($o);
+        echo $output;
+        
+    }
+    
 }

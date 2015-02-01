@@ -12,6 +12,10 @@ class clsSystem {
 
     public static function showRunInfo()
     {
+        if ($_SERVER && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] ==
+            'XMLHttpRequest') {
+            return;
+        }
         if (ENV_DISPLAY_RUN_INFO && ENV_DEBUG) {
             $fmt = C('run_info_fmt');
             $cost = microtime(1) - $_SERVER['REQUEST_TIME_FLOAT'];
